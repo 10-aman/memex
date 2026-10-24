@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg: #0f0e0d;
+    --bg2: #181714;
+    --bg3: #221f1c;
+    --bg4: #2d2926;
+    --border: #3a342f;
+    --border2: #4a433d;
+    --text: #f0ebe4;
+    --text2: #a89e94;
+    --text3: #6b6258;
+    --gold: #d4a843;
+    --gold2: #e8c06a;
+    --gold3: #f5d990;
+    --rust: #c4622d;
+    --sage: #4a7c59;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--text3); }
+
+  .font-serif { font-family: 'DM Serif Display', serif; }
+  .font-mono { font-family: 'DM Mono', monospace; }
+}
+
+@layer components {
+  .btn-gold {
+    @apply px-4 py-2 rounded-lg font-medium text-sm transition-all duration-150;
+    background: var(--gold);
+    color: var(--bg);
+  }
+  .btn-gold:hover { background: var(--gold2); transform: translateY(-1px); }
+  .btn-ghost {
+    @apply px-4 py-2 rounded-lg text-sm transition-all duration-150;
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text2);
+  }
+  .btn-ghost:hover { border-color: var(--border2); color: var(--text); background: var(--bg3); }
+
+  .card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+  }
+
+  .input-base {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    color: var(--text);
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.15s;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .input-base:focus { border-color: var(--gold); }
+  .input-base::placeholder { color: var(--text3); }
+}
+
+/* Typing animation */
+@keyframes bounce {
+  0%, 60%, 100% { transform: translateY(0); }
+  30% { transform: translateY(-5px); }
+}
+.typing-dot {
+  width: 7px; height: 7px;
+  background: var(--text3);
+  border-radius: 50%;
+  animation: bounce 0.9s infinite;
+}
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+/* Fade in */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-up { animation: fadeUp 0.25s ease forwards; }
+
+/* Progress bar */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.progress-shimmer {
+  background: linear-gradient(90deg, var(--gold) 25%, var(--gold2) 50%, var(--gold) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}

@@ -1,0 +1,12 @@
+.env
+.env.*
+!.env.example
+venv/
+node_modules/
+dist/
+__pycache__/
+*.pyc
+backend/uploads/
+backend/db.json
+*.zip
+.DS_Store
